@@ -5,10 +5,8 @@ const sidebar = require('./configs/sidebar')
 module.exports = {
   title: 'VitePress',
   description: 'Life is short, Keep it simple.',
-  head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }]
-  ],
-  base: base,
+  head: [['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }]],
+  base: '/docs/',
   themeConfig: {
     repo: 'xinlei3166/vitepress-demo',
     logo: '/logo.svg',
@@ -18,7 +16,7 @@ module.exports = {
     algolia: {
       appId: 'X51HWTCQJJ',
       apiKey: 'ca20f15eb8a667898b65d13f4213ae3d',
-      indexName: 'vitepress-demo'
+      indexName: 'vitepress-demo',
     },
 
     // nav
@@ -42,8 +40,8 @@ module.exports = {
     config: (md) => {
       const { demoBlockPlugin } = require('vitepress-theme-demoblock')
       md.use(demoBlockPlugin, {
-        cssPreprocessor: 'less'
+        cssPreprocessor: 'less',
       })
-    }
-  }
+    },
+  },
 }

@@ -2,7 +2,6 @@
 node_modules
 /dist
 dist
-scripts/docsearch-scraper
 
 # local env files
 .env.local
