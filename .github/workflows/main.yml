@@ -39,6 +39,9 @@ jobs:
         git init
         git add -A
         git commit -m 'deploy to the gh-pages'
-        git push -f git@github.com:MYGINTAMA/docs.git master:gh-pages
-      env:
-        GITHUB_TOKEN:${{ secrets.AUTODEPLOY }}
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.AUTODEPLOY }}
+          branch: ${{:gh-pages}}
