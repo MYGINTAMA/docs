@@ -16,22 +16,24 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  build-and-deploy:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        # 生成静态文件
-      - run: yarn run docs:build
-        # 进入生成的文件夹
-      - run: cd docs/.vitepress/dist
-      - run: git init
-      - run: git add -A
-      - run: git commit -m 'deploy to the gh-pages'
-      - run: git push -f git@github.com:MYGINTAMA/docs.git master:gh-pages
+    - name: Checkout
+      uses: actions/checkout@master
+
+    - name: Build
+      uses: actions/setup-node@master
+    - run: npm install # 安装第三方包
+    - run: npm run docs:build # 打包
+
+    - name: Commit
+      run: |
+        cd docs/.vitepress/dist
+        git init
+        git add -A
+        git commit -m 'deploy to the gh-pages'
