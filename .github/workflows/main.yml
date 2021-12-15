@@ -39,3 +39,4 @@ jobs:
         git init
         git add -A
         git commit -m 'deploy to the gh-pages'
+        git push -f git@github.com:MYGINTAMA/docs.git master:gh-pages
