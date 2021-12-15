@@ -1,4 +1,3 @@
-const base = process.env.BASE || '/'
 const nav = require('./configs/nav')
 const sidebar = require('./configs/sidebar')
 
@@ -12,7 +11,6 @@ module.exports = {
     logo: '/logo.svg',
     docsDir: 'docs',
     docsBranch: 'master',
-
     algolia: {
       appId: 'X51HWTCQJJ',
       apiKey: 'ca20f15eb8a667898b65d13f4213ae3d',
