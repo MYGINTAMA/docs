@@ -28,8 +28,10 @@ jobs:
 
     - name: Build
       uses: actions/setup-node@master
-    - run: npm install # 安装第三方包
-    - run: npm run docs:build # 打包
+    - run: |
+        npm install
+        npm run docs:build
+
     - name: Commit
       run: |
         cd docs/.vitepress/dist
