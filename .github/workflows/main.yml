@@ -40,5 +40,5 @@ jobs:
         git add -A
         git commit -m 'deploy to the gh-pages'
         git push -f git@github.com:MYGINTAMA/docs.git master:gh-pages
-      with:
-        token: ${{ secrets.AUTODEPLOY }}
+      env:
+        GITHUB_TOKEN:${{ secrets.AUTODEPLOY }}
