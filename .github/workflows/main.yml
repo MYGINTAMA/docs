@@ -27,10 +27,12 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, world!
+        # 生成静态文件
+        run: yarn run docs:build
+        # 进入生成的文件夹
+        run: cd docs/.vitepress/dist
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+        run: git init
+        run: git add -A
+        run: git commit -m 'deploy to the gh-pages'
+        run: git push -f git@github.com:MYGINTAMA/docs.git master:gh-pages
