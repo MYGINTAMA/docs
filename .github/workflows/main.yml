@@ -28,18 +28,9 @@ jobs:
     - run: npm install # 安装第三方包
     - run: npm run docs:build # 打包
 
-    - name: Commit
-      run: |
-        cd docs/.vitepress/dist
-        git config --global user.email "zhu_mei_yu@163.com"
-        git config --global user.name "zhumeiyu"
-        git init
-        git add -A
-        git commit -m 'deploy to the gh-pages'
-
-    - name: Push
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.AUTODEPLOY }}
-        branch: gh-pages
+    - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.7
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: docs/.vitepress/dist # The
 
