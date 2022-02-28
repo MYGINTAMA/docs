@@ -17,5 +17,5 @@ deploy:
   keep-history: true
   local-dir: dist
   on:
-    branch: main
+    branch: dev
   github-token: $GITHUB_TOKEN
